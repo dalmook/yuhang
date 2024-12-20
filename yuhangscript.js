@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
     const resultContainer = document.getElementById('resultContainer');
     const exampleContainer = document.getElementById('exampleContainer');
+    const randomYearContainer = document.getElementById('randomYearContainer');
     let data = [];
 
     // JSON 데이터 불러오기
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(jsonData => {
             data = jsonData;
             displayRandomExamples();
+            displayRandomYearTerms();
         })
         .catch(error => {
             console.error('데이터를 불러오는 중 오류 발생:', error);
@@ -68,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="example-term">${item.term}</span>
         `).join(', ');
 
-        exampleContainer.innerHTML = `<p>🔥 유행어 예시: ${exampleHTML}</p>`;
+        exampleContainer.innerHTML = `<p>🔥 대표 유행어 예시: ${exampleHTML}</p>`;
 
         // 예시 단어에 클릭 이벤트 추가
         const exampleTerms = document.querySelectorAll('.example-term');
@@ -76,6 +78,45 @@ document.addEventListener('DOMContentLoaded', () => {
             term.addEventListener('click', () => {
                 searchInput.value = term.textContent;
                 searchButton.click();
+            });
+        });
+    }
+
+    // 랜덤 연도별 유행어 표시 함수
+    function displayRandomYearTerms() {
+        if (data.length === 0) return;
+
+        const decades = ['2020년대', '2010년대', '2000년대'];
+        const termsPerDecade = 5;
+        decades.forEach(decade => {
+            const decadeSection = document.getElementById(`year${decade.slice(0, 4)}s`);
+            if (!decadeSection) return;
+
+            // 해당 연도대의 유행어 필터링
+            const decadeTerms = data.filter(item => item.year === decade);
+            if (decadeTerms.length === 0) {
+                decadeSection.querySelector('.year-terms').innerHTML = '<li>유행어가 없습니다.</li>';
+                return;
+            }
+
+            // 랜덤으로 최대 5개의 유행어 선택
+            const shuffled = decadeTerms.sort(() => 0.5 - Math.random());
+            const selected = shuffled.slice(0, termsPerDecade);
+
+            // 유행어 목록 표시
+            const termsHTML = selected.map(item => `
+                <li>${item.term}</li>
+            `).join('');
+
+            decadeSection.querySelector('.year-terms').innerHTML = termsHTML;
+
+            // 유행어 항목에 클릭 이벤트 추가
+            const termItems = decadeSection.querySelectorAll('.year-terms li');
+            termItems.forEach(term => {
+                term.addEventListener('click', () => {
+                    searchInput.value = term.textContent;
+                    searchButton.click();
+                });
             });
         });
     }
