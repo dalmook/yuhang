@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (data.length === 0) return;
 
         const decades = ['2020년대', '2010년대'];
-        const termsPerDecade = 3;
+        const termsPerDecade = 5;
         decades.forEach(decade => {
             const decadeSection = document.getElementById(`year${decade.slice(0, 4)}s`);
             if (!decadeSection) return;
