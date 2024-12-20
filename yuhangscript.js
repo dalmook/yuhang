@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchButton = document.getElementById('searchButton');
     const searchInput = document.getElementById('searchInput');
     const resultContainer = document.getElementById('resultContainer');
+    const exampleContainer = document.getElementById('exampleContainer');
     let data = [];
 
     // JSON 데이터 불러오기
@@ -9,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(jsonData => {
             data = jsonData;
+            displayRandomExamples();
         })
         .catch(error => {
             console.error('데이터를 불러오는 중 오류 발생:', error);
@@ -51,5 +53,30 @@ document.addEventListener('DOMContentLoaded', () => {
         `).join('');
 
         resultContainer.innerHTML = html;
+    }
+
+    // 랜덤 예시 유행어 표시 함수
+    function displayRandomExamples() {
+        if (data.length === 0) return;
+
+        // 랜덤으로 3개의 유행어 선택
+        const shuffled = data.sort(() => 0.5 - Math.random());
+        const selected = shuffled.slice(0, 3);
+
+        // 예시 단어 표시
+        const exampleHTML = selected.map(item => `
+            <span class="example-term">${item.term}</span>
+        `).join(', ');
+
+        exampleContainer.innerHTML = `<p>🔥 대표 유행어 예시: ${exampleHTML}</p>`;
+
+        // 예시 단어에 클릭 이벤트 추가
+        const exampleTerms = document.querySelectorAll('.example-term');
+        exampleTerms.forEach(term => {
+            term.addEventListener('click', () => {
+                searchInput.value = term.textContent;
+                searchButton.click();
+            });
+        });
     }
 });
