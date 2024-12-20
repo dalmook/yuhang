@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="example-term">${item.term}</span>
         `).join(', ');
 
-        exampleContainer.innerHTML = `<p>🔥 대표 유행어 예시: ${exampleHTML}</p>`;
+        exampleContainer.innerHTML = `<p>🔥 유행어 예시: ${exampleHTML}</p>`;
 
         // 예시 단어에 클릭 이벤트 추가
         const exampleTerms = document.querySelectorAll('.example-term');
