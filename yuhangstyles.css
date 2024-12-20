@@ -221,6 +221,17 @@ main {
         margin: 3px;
         font-size: 0.9em;
     }
+    .footer {
+    background-color: #ffeb3b;
+    text-align: center;
+    padding: 5px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 0.7em;
+    color: #555;
+}
 }
 
 footer {
@@ -231,6 +242,6 @@ footer {
     bottom: 0;
     width: 100%;
     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-    font-size: 0.9em;
+    font-size: 0.7em;
     color: #555;
 }
