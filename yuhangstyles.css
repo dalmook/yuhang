@@ -1,5 +1,4 @@
-/* 기존 스타일 유지 */
-
+/* 기본 스타일 */
 body {
     font-family: 'Comic Neue', cursive;
     background-color: #f0f8ff;
@@ -34,7 +33,7 @@ main {
 .search-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* 여백 조정 */
 }
 
 #searchInput {
@@ -60,6 +59,26 @@ main {
 
 #searchButton:hover {
     background-color: #d81b60;
+}
+
+#exampleContainer {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1em;
+    color: #555;
+}
+
+.example-term {
+    background-color: #ffe0b2;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.example-term:hover {
+    background-color: #ffcc80;
 }
 
 #resultContainer {
@@ -127,6 +146,16 @@ main {
         border-radius: 0 0 5px 5px;
         border-left: 2px solid #e91e63;
         margin-top: 5px;
+    }
+
+    #exampleContainer p {
+        font-size: 0.9em;
+    }
+
+    .example-term {
+        padding: 4px 8px;
+        margin: 0 3px;
+        font-size: 0.9em;
     }
 }
 
