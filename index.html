@@ -1,47 +1,37 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>유행어 검색</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9168248935486215"
+     crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유행어 검색기</title>
+    <link rel="stylesheet" href="yuhangstyles.css">
+    <!-- Google Fonts를 이용한 코믹한 폰트 추가 -->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <!-- 검색 결과 컨테이너 -->
-    <div id="search-results">
-      <!-- 여기에 검색 결과가 표시됩니다 -->
-    </div>
+    <header>
+        <h1>유행어 검색기</h1>
+        <p>요즘 핫한 유행어를 찾아보세요!</p>
+    </header>
+    <main>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="유행어를 입력하세요...">
+            <button id="searchButton">검색</button>
+        </div>
+        <!-- 예시 유행어 표시 영역 추가 -->
+        <div id="exampleContainer">
+            <p>🔥 대표 유행어 예시: <span class="example-term">꿀잼</span>, <span class="example-term">사바사</span>, <span class="example-term">인싸</span></p>
+        </div>
+        <div id="resultContainer">
+            <!-- 검색 결과가 여기에 표시됩니다 -->
+        </div>
+    </main>
+    <footer>
+        <p>© 2024 유행어 검색기. 모두 재미있게 이용하세요!</p>
+    </footer>
 
-    <!-- 랜덤 단어 컨테이너 -->
-    <div id="random-terms">
-      <h2>연도별 랜덤 유행어</h2>
-      
-      <!-- 2020년대 랜덤 단어 -->
-      <div class="decade-section">
-        <h3>2020년대</h3>
-        <ul id="random-2020s">
-          <!-- 랜덤 단어 5개가 여기에 삽입됩니다 -->
-        </ul>
-      </div>
-
-      <!-- 2010년대 랜덤 단어 -->
-      <div class="decade-section">
-        <h3>2010년대</h3>
-        <ul id="random-2010s">
-          <!-- 랜덤 단어 5개가 여기에 삽입됩니다 -->
-        </ul>
-      </div>
-
-      <!-- 2000년대 랜덤 단어 -->
-      <div class="decade-section">
-        <h3>2000년대</h3>
-        <ul id="random-2000s">
-          <!-- 랜덤 단어 5개가 여기에 삽입됩니다 -->
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="yuhangscript.js"></script>
 </body>
 </html>
