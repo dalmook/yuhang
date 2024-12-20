@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayRandomYearTerms() {
         if (data.length === 0) return;
 
-        const decades = ['2020년대', '2010년대', '2000년대'];
+        const decades = ['2020년대', '2010년대'];
         const termsPerDecade = 5;
         decades.forEach(decade => {
             const decadeSection = document.getElementById(`year${decade.slice(0, 4)}s`);
