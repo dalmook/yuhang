@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // 검색어가 없는 경우 텔레그램으로 전송하는 함수
     function sendMissingTerm(term) {
-        const serverUrl = 'https://your-vercel-deployment-url.vercel.app/api/send-missing-term'; // Vercel에 배포된 서버리스 함수의 URL로 변경
+        const serverUrl = 'https://yuhang-beta.vercel.app/api/send-missing-term'; // Vercel에 배포된 서버리스 함수의 URL로 변경
 
         fetch(serverUrl, {
             method: 'POST',
