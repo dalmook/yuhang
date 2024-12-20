@@ -120,6 +120,52 @@ main {
     margin-top: 5px;
 }
 
+/* 연도별 랜덤 유행어 스타일 */
+#randomYearContainer {
+    max-width: 800px;
+    margin: 30px auto 0 auto;
+    padding: 20px;
+    background-color: #e3f2fd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#randomYearContainer h2 {
+    text-align: center;
+    color: #1976d2;
+    margin-bottom: 20px;
+}
+
+.year-section {
+    margin-bottom: 20px;
+}
+
+.year-section h3 {
+    color: #0288d1;
+    margin-bottom: 10px;
+}
+
+.year-terms {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.year-terms li {
+    background-color: #bbdefb;
+    color: #0d47a1;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.year-terms li:hover {
+    background-color: #90caf9;
+}
+
 /* 반응형 디자인 */
 @media (max-width: 768px) {
     #searchInput {
@@ -155,6 +201,24 @@ main {
     .example-term {
         padding: 4px 8px;
         margin: 0 3px;
+        font-size: 0.9em;
+    }
+
+    #randomYearContainer {
+        padding: 15px;
+    }
+
+    #randomYearContainer h2 {
+        font-size: 1.5em;
+    }
+
+    .year-section h3 {
+        font-size: 1.2em;
+    }
+
+    .year-terms li {
+        padding: 4px 8px;
+        margin: 3px;
         font-size: 0.9em;
     }
 }
