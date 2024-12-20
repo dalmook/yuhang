@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const searchButton = document.getElementById('searchButton');
+    const refreshButton = document.getElementById('refreshButton'); // 새로고침 버튼 추가
     const searchInput = document.getElementById('searchInput');
     const resultContainer = document.getElementById('resultContainer');
     const exampleContainer = document.getElementById('exampleContainer');
@@ -46,6 +47,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // 새로고침 버튼 기능
+    refreshButton.addEventListener('click', () => {
+        // 검색 입력 초기화
+        searchInput.value = '';
+
+        // 검색 결과 초기화
+        resultContainer.innerHTML = '';
+
+        // 예시 유행어 다시 표시
+        displayRandomExamples();
+
+        // 연도별 랜덤 유행어 다시 표시
+        displayRandomYearTerms();
+    });
+
     // 결과 표시 함수
     function displayResults(results) {
         if (results.length === 0) {
@@ -68,6 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayRandomExamples() {
         if (data.length === 0) return;
 
+        // 기존 예시 유행어 초기화
+        exampleContainer.innerHTML = '';
+
         // 랜덤으로 3개의 유행어 선택
         const shuffled = data.sort(() => 0.5 - Math.random());
         const selected = shuffled.slice(0, 3);
@@ -77,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="example-term">${item.term}</span>
         `).join(', ');
 
-        exampleContainer.innerHTML = `<p>🔥유행어 예시: ${exampleHTML}</p>`;
+        exampleContainer.innerHTML = `<p>🔥 대표 유행어 예시: ${exampleHTML}</p>`;
 
         // 예시 단어에 클릭 이벤트 추가
         const exampleTerms = document.querySelectorAll('.example-term');
@@ -105,6 +124,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 decadeSection.querySelector('.year-terms').innerHTML = '<li>유행어가 없습니다.</li>';
                 return;
             }
+
+            // 기존 연도별 유행어 초기화
+            decadeSection.querySelector('.year-terms').innerHTML = '';
 
             // 랜덤으로 최대 5개의 유행어 선택
             const shuffled = decadeTerms.sort(() => 0.5 - Math.random());
