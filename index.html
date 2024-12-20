@@ -2,8 +2,6 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9168248935486215"
-     crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>유행어 검색기</title>
     <link rel="stylesheet" href="yuhangstyles.css">
@@ -20,12 +18,28 @@
             <input type="text" id="searchInput" placeholder="유행어를 입력하세요...">
             <button id="searchButton">검색</button>
         </div>
-        <!-- 예시 유행어 표시 영역 추가 -->
+        <!-- 예시 유행어 표시 영역 -->
         <div id="exampleContainer">
             <p>🔥 대표 유행어 예시: <span class="example-term">꿀잼</span>, <span class="example-term">사바사</span>, <span class="example-term">인싸</span></p>
         </div>
         <div id="resultContainer">
             <!-- 검색 결과가 여기에 표시됩니다 -->
+        </div>
+        <!-- 연도별 랜덤 유행어 표시 영역 추가 -->
+        <div id="randomYearContainer">
+            <h2>📅 연도별 랜덤 유행어</h2>
+            <div class="year-section" id="year2020s">
+                <h3>2020년대</h3>
+                <ul class="year-terms"></ul>
+            </div>
+            <div class="year-section" id="year2010s">
+                <h3>2010년대</h3>
+                <ul class="year-terms"></ul>
+            </div>
+            <div class="year-section" id="year2000s">
+                <h3>2000년대</h3>
+                <ul class="year-terms"></ul>
+            </div>
         </div>
     </main>
     <footer>
