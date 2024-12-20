@@ -1,3 +1,5 @@
+// yuhangscript.js
+
 document.addEventListener('DOMContentLoaded', () => {
     const searchButton = document.getElementById('searchButton');
     const searchInput = document.getElementById('searchInput');
@@ -28,6 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const results = data.filter(item => item.term.includes(query));
+
+        if (results.length === 0) {
+            // 검색어가 없는 경우 텔레그램으로 전송
+            sendMissingTerm(query);
+            resultContainer.innerHTML = '<p>검색 결과가 없습니다. 해당 유행어가 추가될 예정입니다!</p>';
+            return;
+        }
 
         displayResults(results);
     });
@@ -70,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="example-term">${item.term}</span>
         `).join(', ');
 
-        exampleContainer.innerHTML = `<p>🔥 유행어 예시: ${exampleHTML}</p>`;
+        exampleContainer.innerHTML = `<p>🔥유행어 예시: ${exampleHTML}</p>`;
 
         // 예시 단어에 클릭 이벤트 추가
         const exampleTerms = document.querySelectorAll('.example-term');
@@ -87,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (data.length === 0) return;
 
         const decades = ['2020년대', '2010년대'];
-        const termsPerDecade = 5;
+        const termsPerDecade = 3;
         decades.forEach(decade => {
             const decadeSection = document.getElementById(`year${decade.slice(0, 4)}s`);
             if (!decadeSection) return;
@@ -120,6 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
     // 검색어가 없는 경우 텔레그램으로 전송하는 함수
     function sendMissingTerm(term) {
         const serverUrl = 'https://yuhang-beta.vercel.app/api/send-missing-term'; // Vercel에 배포된 서버리스 함수의 URL로 변경
