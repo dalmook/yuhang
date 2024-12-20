@@ -1,5 +1,3 @@
-// yuhangscript.js
-
 document.addEventListener('DOMContentLoaded', () => {
     const searchButton = document.getElementById('searchButton');
     const searchInput = document.getElementById('searchInput');
