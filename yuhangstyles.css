@@ -166,7 +166,18 @@ main {
 .year-terms li:hover {
     background-color: #90caf9;
 }
+/* 광고 컨테이너 스타일 */
+.adsense-container {
+    width: 100%;
+    max-width: 728px; /* 광고 최대 너비 설정 */
+    margin: 20px auto; /* 중앙 정렬 및 상하 마진 설정 */
+}
 
+@media (max-width: 600px) {
+    .adsense-container {
+        max-width: 100%; /* 모바일에서는 전체 너비 사용 */
+    }
+}
 /* 반응형 디자인 */
 @media (max-width: 768px) {
     #searchInput {
